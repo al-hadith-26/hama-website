@@ -143,7 +143,7 @@
 
         let param = '';
         
-        if(fullUrl.includes('#')){
+        if(fullUrl.includes('#') || fullUrl.includes('?lijan') || fullUrl.includes('?register_riyad') || fullUrl.includes('?register_nawawi_ch')){
           if(fullUrl.includes('lijan')){
             param = 'page=estemara-lijan';
           } else if(fullUrl.includes('register_riyad')){
@@ -151,7 +151,7 @@
           } else if(fullUrl.includes('register_nawawi_ch')){
             param = 'page=nawawi-ch-registration';
           }
-        } else if(fullUrl.includes('?')) {
+        } else if(fullUrl.includes('?page')) {
           param = fullUrl.split('?')[1];
         }
         console.log(param);
