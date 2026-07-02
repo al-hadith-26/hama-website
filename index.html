@@ -141,18 +141,35 @@
         const loader = document.getElementById('loader');
         const errorContainer = document.getElementById('errorContainer');
 
-        let param = fullUrl.split('?')[1];
+        let param = '';
+        
+        if(fullUrl.includes('#')){
+          if(fullUrl.includes('lijan')){
+            param = '?page=estemara-lijan';
+          } else if(fullUrl.includes('register_riyad')){
+            param= '?page=riyad-registration';
+          } else if(fullUrl.includes('register_nawawi_ch')){
+            param = '?page=nawawi-ch-registration';
+          }
+        } else if(fullUrl.includes('?')) {
+          param = fullUrl.split('?')[1];
+        }
         console.log(param);
 
-        iframe.src = GAS_DEPLOY_URL + '?' + param;
-        iframe.onload = function () {
-          loader.style.transition = 'opacity 0.6s ease';
-          loader.style.opacity = '0';
-          setTimeout(() => {
-            loader.style.display = 'none';
-            iframe.style.display = 'block';
-          }, 60);
-        };
+        if(param){
+          iframe.src = GAS_DEPLOY_URL + '?' + param;
+          iframe.onload = function () {
+            loader.style.transition = 'opacity 0.6s ease';
+            loader.style.opacity = '0';
+            setTimeout(() => {
+              loader.style.display = 'none';
+              iframe.style.display = 'block';
+            }, 60);
+          };
+        } else {
+          loader.style.display = 'none';
+          errorContainer.style.display = 'flex';
+        }
        
       };
     </script>
