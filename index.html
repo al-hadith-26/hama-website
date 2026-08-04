@@ -146,7 +146,7 @@
         
         if(fullUrl.includes('#') || fullUrl.includes('?lijan') || fullUrl.includes('?register_riyad') || fullUrl.includes('?register_nawawi_ch')){
           if(fullUrl.includes('lijan')){
-            param = 'page=estemara-lijan';
+            param = fullUrl.includes('lijan2') ? 'page=estemara-lijan2' : 'page=estemara-lijan';
           } else if(fullUrl.includes('register_riyad')){
             param= 'page=riyad-registration';
           } else if(fullUrl.includes('register_nawawi_ch')){
