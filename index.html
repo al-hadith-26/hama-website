@@ -132,17 +132,6 @@
     </div>
 
     <script>
-      window.addEventListener('message', function(event) {
-        // تأكد من أن الرسالة تأتي من التطبيق نفسه (اختياري لكن مفيد)
-        // if (event.origin !== 'https://script.google.com') return; 
-    
-        if (event.data && event.data.type === 'navigate') {
-          window.location.href = event.data.url;
-        }
-      });
-    </script>
-    
-    <script>
       const GAS_DEPLOY_URL =
         'https://script.google.com/macros/s/AKfycbygv6XiaUent0gkyp0rGblgqTSlCj5IT7QttXxWE2u-zP-1-6s9jB1h58i8ICwGrnM/exec';
 
@@ -166,7 +155,6 @@
         } else if(fullUrl.includes('?page')) {
           param = fullUrl.split('?')[1];
         }
-        console.log(param);
 
         if(param){
           iframe.src = GAS_DEPLOY_URL + '?' + param;
@@ -184,6 +172,16 @@
         }
        
       };
+
+      window.addEventListener('DOMContentLoaded', function() {
+        var hash = window.location.hash.replace('#', '');
+        if (hash) {
+          var iframe = document.getElementById('myIframe');
+          if (iframe) {
+            iframe.src = 'https://script.google.com/.../exec?' + hash;
+          }
+        }
+      });
     </script>
   </body>
 </html>
