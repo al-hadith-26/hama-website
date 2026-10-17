@@ -144,7 +144,7 @@
 
         let param = '';
         
-        if(fullUrl.includes('#') || fullUrl.includes('?lijan') || fullUrl.includes('?register_riyad') || fullUrl.includes('?register_nawawi_ch')){
+        if(fullUrl.includes('#') || fullUrl.includes('?lijan') || fullUrl.includes('?register_riyad') || fullUrl.includes('?register_nawawi_ch') || fullUrl.includes('riyad_sh_reg')){
           if(fullUrl.includes('lijan_ch')){
             param = 'page=lijan-habib-alsighar';
           } else if(fullUrl.includes('lijan')){
@@ -153,6 +153,8 @@
             param= 'page=riyad-registration';
           } else if(fullUrl.includes('register_nawawi_ch')){
             param = 'page=nawawi-ch-registration';
+          } else if(fullUrl.includes('riyad_sh_reg')){
+            param = 'page=riyad-sharh-registration';
           }
         } else if(fullUrl.includes('?page')) {
           param = fullUrl.split('?')[1];
