@@ -144,19 +144,39 @@
 
         let param = '';
         
-        if(fullUrl.includes('#') || fullUrl.includes('?lijan') || fullUrl.includes('?register_riyad') || fullUrl.includes('?register_nawawi_ch') || fullUrl.includes('riyad_sh_reg')){
-          if(fullUrl.includes('lijan_ch')){
-            param = 'page=lijan-habib-alsighar';
-          } else if(fullUrl.includes('lijan')){
-            param = fullUrl.includes('lijan2') ? 'page=estemara-lijan2' : 'page=estemara-lijan';
-          } else if(fullUrl.includes('register_riyad')){
-            param= 'page=riyad-registration';
-          } else if(fullUrl.includes('register_nawawi_ch')){
-            param = 'page=nawawi-ch-registration';
-          } else if(fullUrl.includes('riyad_sh_reg')){
-            param = 'page=riyad-sharh-registration';
-          }
-        } else if(fullUrl.includes('?page')) {
+        // if(fullUrl.includes('#') || fullUrl.includes('?lijan') || fullUrl.includes('?register_riyad') || fullUrl.includes('?register_nawawi_ch') || fullUrl.includes('riyad_sh_reg')){
+        //   if(fullUrl.includes('lijan')){
+        //     if(fullUrl.includes('lijan_ch')){
+        //       param = 'page=lijan-habib-alsighar';
+        //     } else {
+        //       param = fullUrl.includes('lijan2') ? 'page=estemara-lijan2' : fullUrl.includes('lijan_3') ? 'page=estemara-lijan3-riyad-sharh' : 'page=estemara-lijan';
+        //     }
+        //   } else if(fullUrl.includes('register_riyad')){
+        //     param= 'page=riyad-registration';
+        //   } else if(fullUrl.includes('register_nawawi_ch')){
+        //     param = 'page=nawawi-ch-registration';
+        //   } else if(fullUrl.includes('riyad_sh_reg')){
+        //     param = 'page=riyad-sharh-registration';
+        //   }
+        // } else if(fullUrl.includes('?page')) {
+        //   param = fullUrl.split('?')[1];
+        // }
+
+        if (fullUrl.includes('lijan_ch')) {
+          param = 'page=lijan-habib-alsighar';
+        } else if (fullUrl.includes('lijan2')) {
+          param = 'page=estemara-lijan2';
+        } else if (fullUrl.includes('lijan_3')) {
+          param = 'page=estemara-lijan3-riyad-sharh';
+        } else if (fullUrl.includes('lijan')) {
+          param = 'page=estemara-lijan';
+        } else if (fullUrl.includes('register_riyad')) {
+          param = 'page=riyad-registration';
+        } else if (fullUrl.includes('register_nawawi_ch')) {
+          param = 'page=nawawi-ch-registration';
+        } else if (fullUrl.includes('riyad_sh_reg')) {
+          param = 'page=riyad-sharh-registration';
+        } else if (fullUrl.includes('?page=')) {
           param = fullUrl.split('?')[1];
         }
 
